@@ -1,0 +1,11 @@
+{
+  "id": 1,
+  "nombre": "Daniela Fajardo",
+  "edad": 26,
+  "direccion": {
+    "ciudad": "Bogotá",
+    "pais": "Colombia"
+  },
+  "hobbies": ["Dibujar", "Ejercicio", "Aprender"],
+  "esCasada": false
+}
