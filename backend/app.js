@@ -3,10 +3,14 @@
 
 // 1. Importar las dependencias necesarias
 import express from "express";
+import dotenv from "dotenv";
+import mongoose from "mongoose";
 
 // 2. Configurar las dependecnias que necesitamos
 const app = express();
-const port = 3000;
+dotenv.config();
+
+const port = process.env.PORT;
 
 // 3. Funcionalidades que necesite agregar
 app.get("/",(req, res)=>{
