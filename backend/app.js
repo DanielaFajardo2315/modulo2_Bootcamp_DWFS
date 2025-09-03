@@ -5,6 +5,8 @@
 import express from "express";
 import dotenv from "dotenv";
 import { conectMongo } from "./src/config/db.js";
+import { productRouter } from "./routes/products.routes.js";
+import { userRouter } from "./routes/users.routes.js";
 
 // 2. Configurar las dependecnias que necesitamos
 const app = express();
@@ -17,6 +19,10 @@ conectMongo(); //Conexión con DB
 app.get("/", (req, res) => {
   res.send("Server works")
 });
+
+app.use(express.json()); //para usar formato json en peticiones y respuestas
+app.use("/products", productRouter);
+app.use("/users", userRouter);
 
 // 4. Levantar el servidor (3000, 6000 (no recomendado), 9000)
 app.listen(port, () => {
