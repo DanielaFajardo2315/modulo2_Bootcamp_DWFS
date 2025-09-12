@@ -1,5 +1,5 @@
 // 1. Importar dependencias y modulos necesarios
-import { productModel } from "../src/models/products.model.js";
+import { productModel } from "../models/products.model.js";
 
 // 2. Definir las acciones que van a realizar - CRUD
 
@@ -7,7 +7,19 @@ import { productModel } from "../src/models/products.model.js";
 export const postProduct = async (request, response) => {
     // return response.json({"mensaje": "Funciona petición POST"});
     try {
-        await productModel.create(request.body);
+        // Validación de que si exista el archivo enviado
+        if(!request.file){
+            return response.status(400).json({
+                "message": "You need upload an image"
+            });
+        }
+        // Organizo primero el producto que se va a crear
+        const newProduct = {
+            ...request.body,
+            image: `/uploads/${request.file.filename}`
+        }
+
+        await productModel.create(newProduct);
         return response.status(201).json({
             "message": "Product created correctly"
         });

@@ -1,4 +1,4 @@
-import { userModel } from "../src/models/users.model.js";
+import { userModel } from "../models/users.model.js";
 import bcryptjs from "bcryptjs";
 
 // 2. Definir las acciones que van a realizar - CRUD
