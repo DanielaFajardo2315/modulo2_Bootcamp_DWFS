@@ -36,7 +36,7 @@ export const getAllUsers = async (request, response) => {
     try {
         const allUsers = await userModel.find();
         return response.status(200).json({
-            "message": "Products found",
+            "message": "Users found",
             "data": allUsers
         });
 

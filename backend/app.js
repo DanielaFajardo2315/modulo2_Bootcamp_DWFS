@@ -7,6 +7,7 @@ import dotenv from "dotenv";
 import { conectMongo } from "./src/config/db.js";
 import { productRouter } from "./src/routes/products.routes.js";
 import { userRouter } from "./src/routes/users.routes.js";
+import { loginRouter } from "./src/routes/login.routes.js";
 import cors from "cors";
 import path from "path";
 import { fileURLToPath } from "url";
@@ -30,6 +31,7 @@ app.use(express.json()); //para usar formato json en peticiones y respuestas
 app.use("/products", productRouter);
 app.use("/users", userRouter);
 app.use("/uploads", express.static(path.join(_dirname, "src/uploads")));
+app.use("/login", loginRouter);
 
 // 4. Levantar el servidor (3000, 6000 (no recomendado), 9000)
 app.listen(port, () => {
